@@ -6,11 +6,13 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 
 //para utilizar ngModel (entre otros)
 import {  FormsModule } from '@angular/forms';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroDetailComponent
   ],
   imports: [
     BrowserModule,
