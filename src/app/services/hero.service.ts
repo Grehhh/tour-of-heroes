@@ -15,5 +15,9 @@ export class HeroService {
     this.messageService.add('HeroService: fetched heroes');     //una vez hecho el fetch muestra el mensaje 
     return of(HEROES);      //return of devuelve un observable cuyo valor es el array definido en mockDB
   }
+  getHero(id: number): Observable<Hero> {
+    this.messageService.add(`HeroService: fetched hero id = ${id}`);
+    return of(HEROES.find(hero => hero.id === id ));
+  }
 
 }

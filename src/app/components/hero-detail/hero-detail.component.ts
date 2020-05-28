@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';     //se importa Input para poder añadir el decorador que permite hacebinding entre componentes
 import { Hero } from '../../interfaces/hero';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -9,9 +12,20 @@ import { Hero } from '../../interfaces/hero';
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
   
-  constructor() { }
+  constructor(private route: ActivatedRoute, private location: Location, private heroService: HeroService) { }
+
+  getHero(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.heroService.getHero(id) 
+    .subscribe(data => this.hero = data); 
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 
   ngOnInit() {
+    this.getHero();
   }
 
 }
