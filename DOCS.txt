@@ -1,4 +1,0 @@
-
-3_feature_component
-	determina el componente hero que se va a mostrar en hero-detail.html recibido, determinado en hero-detail.ts; hero-detail.ts recibe el valor mediante @Input desde heroes.html el la etiqueta <app-hero-detail> en la cual mediante el atributo [hero] se atribuye el valor "selected hero", definido en heroes.ts 
-
